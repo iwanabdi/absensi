@@ -45,7 +45,7 @@ public class register extends AppCompatActivity {
 
     }
 
-    public void onClick(View v) {
+    public void clickregis(View v) {
         String nik = etnik.getText().toString();
         String nama = etnama.getText().toString();
         String jabat = listjaba.get(spjabatan.getSelectedItemPosition());
