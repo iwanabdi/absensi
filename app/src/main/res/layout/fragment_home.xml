@@ -36,7 +36,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="TextView"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/txt_nik"
@@ -58,7 +59,8 @@
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
                 android:text="Ringkasan"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txt_tanggal"
