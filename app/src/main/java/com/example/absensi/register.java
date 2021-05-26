@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,7 +16,7 @@ import java.util.Arrays;
 
 public class register extends AppCompatActivity {
 
-    EditText etnama,etnik,etpass,etconfpass;
+    EditText etnama,etnik,etpass,etconfpass,etemail;
     Spinner spjabatan;
     Button btnlgn,btnregis;
     String[] jab = new String[]{"Enginer", "Supervisor","Manager"};
@@ -31,6 +32,7 @@ public class register extends AppCompatActivity {
         etnama = findViewById(R.id.etNama);
         etnik = findViewById(R.id.etNIK);
         etpass = findViewById(R.id.etPass);
+        etemail = findViewById(R.id.etemail);
         etconfpass = findViewById(R.id.etconfirmpass);
         btnlgn = findViewById(R.id.btnlogin);
         btnregis = findViewById(R.id.btnregister);
@@ -41,6 +43,24 @@ public class register extends AppCompatActivity {
         spjabatan.setAdapter(adapterSpinner);
         db = AppDatabase.getDatabase(register());
 
+    }
+
+    public void onClick(View v) {
+        String nik = etnik.getText().toString();
+        String nama = etnama.getText().toString();
+        String jabat = listjaba.get(spjabatan.getSelectedItemPosition());
+        String pass = etpass.getText().toString();
+        String email = etemail.getText().toString();
+        Pegawai mhs = new Pegawai(nama,nik, jabat, email,pass);
+
+        try {
+            new Addpegawaitask().execute(mhs);
+        }
+        catch (Exception e) {
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+
+        reset();
     }
 
     private class Addpegawaitask extends AsyncTask<Pegawai, Void, Void> {
