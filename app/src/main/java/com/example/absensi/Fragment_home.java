@@ -2,23 +2,28 @@ package com.example.absensi;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 public class Fragment_home extends Fragment {
-    public Fragment_home() {
+
+    TextView etnama,etnik;
+    Pegawai peglogin;
+
+    public Fragment_home(Pegawai pegawailogin) {
         // Required empty public constructor
+        peglogin = pegawailogin;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-
-        }
     }
 
     @Override
@@ -26,5 +31,15 @@ public class Fragment_home extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        etnama = view.findViewById(R.id.txt_nama);
+        etnik = view.findViewById(R.id.txt_nik);
+
+        etnama.setText(peglogin.getNama());
+        System.out.println(peglogin.getNama());
     }
 }

@@ -6,13 +6,14 @@ import android.os.Parcelable;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName="pegawai")
+@Entity(tableName="pegawai",indices = {@Index(value = {"pegawai_nik", "pegawai_email"},unique = true)})
 public class Pegawai implements Parcelable{
     @NonNull
     @PrimaryKey
-    @ColumnInfo(name="pegawai_nrp")
+    @ColumnInfo(name="pegawai_nik")
     String nik;
 
     @ColumnInfo(name="pegawai_nama")

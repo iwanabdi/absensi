@@ -11,7 +11,10 @@ import java.util.List;
 @Dao
 public interface PegawaiDAO {
     @Query("SELECT * FROM pegawai")
-    List<Pegawai> getAllMhs();
+    List<Pegawai> getAllpeg();
+
+    @Query("SELECT * FROM pegawai WHERE pegawai_email = :email AND pegawai_password = :pass")
+    Pegawai getpeg(String email,String pass);
 
     @Insert
     void insert(Pegawai peg);

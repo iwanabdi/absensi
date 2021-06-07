@@ -41,26 +41,29 @@ public class register extends AppCompatActivity {
         listjaba.addAll(Arrays.asList(jab));
         adapterSpinner = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, listjaba);
         spjabatan.setAdapter(adapterSpinner);
-        db = AppDatabase.getDatabase(register());
-
     }
 
     public void clickregis(View v) {
         String nik = etnik.getText().toString();
         String nama = etnama.getText().toString();
-        String jabat = listjaba.get(spjabatan.getSelectedItemPosition());
+        String jabat = spjabatan.getSelectedItem().toString();
         String pass = etpass.getText().toString();
         String email = etemail.getText().toString();
         Pegawai mhs = new Pegawai(nama,nik, jabat, email,pass);
 
         try {
             new Addpegawaitask().execute(mhs);
+            reset();
+            Toast.makeText(this, "berhasil register", Toast.LENGTH_SHORT).show();
         }
         catch (Exception e) {
             Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
 
-        reset();
+    }
+
+    public void clicklogin(View v) {
+        finish();
     }
 
     private class Addpegawaitask extends AsyncTask<Pegawai, Void, Void> {
@@ -68,12 +71,11 @@ public class register extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-            reset();
-            Toast.makeText(this, "data berhasil ditambahkan!", Toast.LENGTH_SHORT).show();
         }
 
         @Override
         protected Void doInBackground(Pegawai... pegawais) {
+            db = AppDatabase.getDatabase(getApplicationContext());
             db.pegawaiDAO().insert(pegawais[0]);
             return null;
         }
