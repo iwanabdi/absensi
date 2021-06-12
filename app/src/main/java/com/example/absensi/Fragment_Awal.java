@@ -9,7 +9,17 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -19,6 +29,7 @@ public class Fragment_Awal extends Fragment {
 
     Pegawai peglogin;
     TextView txtnama,txtnip,txttgl,txtcin,txtcout,txtjabatan;
+    Button btncin,btncout;
 
     public Fragment_Awal() {
         // Required empty public constructor
@@ -49,6 +60,8 @@ public class Fragment_Awal extends Fragment {
         txttgl = view.findViewById(R.id.txdate);
         txtcin = view.findViewById(R.id.txcin);
         txtcout = view.findViewById(R.id.txcout);
+        btncin = view.findViewById(R.id.btn_checkin1);
+        btncout = view.findViewById(R.id.btn_cheackout2);
 
         Date now = new Date();
         SimpleDateFormat df = new SimpleDateFormat("dd-mm-yyyy");
@@ -57,6 +70,38 @@ public class Fragment_Awal extends Fragment {
         txtnip.setText(peglogin.getNik());
         txtjabatan.setText(peglogin.getJabatan());
         txttgl.setText(datenow);
+
+        btncin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "cin", Toast.LENGTH_SHORT).show();
+                StringRequest stringRequest = new StringRequest(Request.Method.GET, "https://absensiandroid-6f6d0-default-rtdb.asia-southeast1.firebasedatabase.app/data/123.json",
+                        new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                try {
+                                    JSONObject jsonObject = new JSONObject(response);
+                                    System.out.println(jsonObject.get("cin"));
+                                }catch (JSONException e){
+                                    e.printStackTrace();
+                                }
+                            }
+                        },
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+
+                            }
+                        });
+            }
+        });
+
+        btncout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "cout", Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 }
