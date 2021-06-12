@@ -22,10 +22,11 @@
 
             <ImageView
                 android:id="@+id/imageView3"
-                android:layout_width="300dp"
-                android:layout_height="147dp"
+                android:layout_width="247dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10pt"
                 android:layout_weight="1"
-                android:src="@drawable/logoprofile"/>
+                android:src="@drawable/logoprofile" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -38,21 +39,26 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="nama" />
+                    android:text="nama"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/txnip"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10px"
                     android:layout_weight="1"
-                    android:text="nip" />
+                    android:text="nip"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/txjabatan"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10px"
                     android:layout_weight="1"
-                    android:text="jabatan" />
+                    android:text="jabatan"
+                    android:textSize="18sp" />
             </LinearLayout>
         </LinearLayout>
 
@@ -97,7 +103,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="00:00:00" />
+                android:text="00:00" />
         </LinearLayout>
 
         <LinearLayout
@@ -118,7 +124,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="00:00:00" />
+                android:text="00:00" />
         </LinearLayout>
 
         <LinearLayout

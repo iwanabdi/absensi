@@ -14,10 +14,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -64,35 +67,18 @@ public class Fragment_Awal extends Fragment {
         btncout = view.findViewById(R.id.btn_cheackout2);
 
         Date now = new Date();
-        SimpleDateFormat df = new SimpleDateFormat("dd-mm-yyyy");
+        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
         String datenow = df.format(now);
         txtnama.setText(peglogin.getNama());
         txtnip.setText(peglogin.getNik());
         txtjabatan.setText(peglogin.getJabatan());
         txttgl.setText(datenow);
 
+        ambilabsennow(datenow);
+
         btncin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "cin", Toast.LENGTH_SHORT).show();
-                StringRequest stringRequest = new StringRequest(Request.Method.GET, "https://absensiandroid-6f6d0-default-rtdb.asia-southeast1.firebasedatabase.app/data/123.json",
-                        new Response.Listener<String>() {
-                            @Override
-                            public void onResponse(String response) {
-                                try {
-                                    JSONObject jsonObject = new JSONObject(response);
-                                    System.out.println(jsonObject.get("cin"));
-                                }catch (JSONException e){
-                                    e.printStackTrace();
-                                }
-                            }
-                        },
-                        new Response.ErrorListener() {
-                            @Override
-                            public void onErrorResponse(VolleyError error) {
-
-                            }
-                        });
             }
         });
 
@@ -103,5 +89,39 @@ public class Fragment_Awal extends Fragment {
             }
         });
 
+    }
+
+    public void ambilabsennow(String date){
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, getResources().getString(R.string.apiget),
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            JSONObject jsonisi = jsonObject.getJSONObject(peglogin.getNik());
+                            JSONObject isi = jsonisi.getJSONObject(date);
+                            String cin = isi.getString("cin");
+                            if (cin != null){
+                                txtcin.setText(cin);
+                                btncin.setEnabled(false);
+                            }
+                            String cout = isi.getString("cout");
+                            if (cout != null){
+                                txtcout.setText(cout);
+                                btncout.setEnabled(false);
+                            }
+                        }catch (JSONException e){
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getActivity(),error.getCause().toString(),Toast.LENGTH_SHORT).show();
+                    }
+                });
+        RequestQueue queue = Volley.newRequestQueue(getActivity());
+        queue.add(stringRequest);
     }
 }
