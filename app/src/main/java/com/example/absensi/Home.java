@@ -35,7 +35,7 @@ public class Home extends AppCompatActivity implements BottomNavigationView.OnNa
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         Fragment fragment = null;
         if (item.getItemId() == R.id.menu_home) {
-            fragment = new Fragment_home(pegawailogin);
+            fragment = new Fragment_Awal(pegawailogin);
         }
         if (item.getItemId() == R.id.menu_logout) {
             finish();
