@@ -6,6 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/login_shape_bk"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/ic_login_bk" />
+    </FrameLayout>
+
     <EditText
         android:id="@+id/etpassword"
         android:layout_width="332dp"
@@ -36,15 +49,17 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="160dp"
         android:layout_marginTop="20dp"
+        android:backgroundTint="#85E68D"
         android:onClick="clicklogin"
         android:text="LOGIN"
+        android:textColor="#000000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etpassword" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="266dp"
-        android:layout_height="48dp"
+        android:layout_height="130dp"
         android:layout_marginStart="70dp"
         android:layout_marginTop="30dp"
         android:src="@drawable/logoayoabsen"
@@ -58,8 +73,10 @@
         android:layout_height="34dp"
         android:layout_marginStart="3dp"
         android:layout_marginTop="83dp"
+        android:backgroundTint="#85E68D"
         android:onClick="clickregis"
         android:text="Register"
+        android:textColor="#000000"
         android:textSize="10sp"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/etpassword" />
@@ -75,24 +92,24 @@
         app:layout_constraintTop_toBottomOf="@+id/btnlogin_lgn" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="20dp"
-        android:text="Email"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-    <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="16dp"
         android:text="Password :"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etmail" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="96dp"
+        android:text="Email"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
