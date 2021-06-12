@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.fragment__awal);
         btnlogin = findViewById(R.id.btnlogin_lgn);
         btnregis = findViewById(R.id.btnregis_lgn);
         etpass = findViewById(R.id.etpassword);
