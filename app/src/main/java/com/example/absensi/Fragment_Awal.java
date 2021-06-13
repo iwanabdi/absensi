@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -26,7 +27,9 @@ import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 public class Fragment_Awal extends Fragment {
 
@@ -73,19 +76,93 @@ public class Fragment_Awal extends Fragment {
         txtnip.setText(peglogin.getNik());
         txtjabatan.setText(peglogin.getJabatan());
         txttgl.setText(datenow);
+        btncout.setEnabled(false);
 
         ambilabsennow(datenow);
 
         btncin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                RequestQueue queue = Volley.newRequestQueue(getActivity());
+                String url = getResources().getString(R.string.apikirim)+peglogin.getNik()+"/"+datenow+".json";
+//                System.out.println(url);
+                StringRequest request = new StringRequest(Request.Method.PUT, url,
+                        new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject respObj = new JSONObject(response);
+                            ambilabsennow(datenow);
+                            Toast.makeText(getActivity(), "Berhasil Check In", Toast.LENGTH_SHORT).show();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new com.android.volley.Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // method to handle errors.
+                        Toast.makeText(getActivity(), "Fail to get response = " + error, Toast.LENGTH_SHORT).show();
+                    }
+                }) {
+                    @Override
+                    public byte[] getBody() throws AuthFailureError {
+                        JSONObject send = new JSONObject();
+                        try {
+                            SimpleDateFormat df = new SimpleDateFormat("HH:mm");
+                            String jamnow = df.format(now);
+                            send.put("cin",jamnow);
+                            send.put("date",datenow);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        String jsonString = send.toString();
+                        return jsonString.getBytes();
+                    }
+                };
+                queue.add(request);
             }
         });
 
         btncout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "cout", Toast.LENGTH_SHORT).show();
+                RequestQueue queue = Volley.newRequestQueue(getActivity());
+                String url = getResources().getString(R.string.apikirim)+peglogin.getNik()+"/"+datenow+".json";
+                StringRequest request = new StringRequest(Request.Method.PATCH  , url,
+                        new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                try {
+                                    JSONObject respObj = new JSONObject(response);
+                                    ambilabsennow(datenow);
+                                    Toast.makeText(getActivity(), "Berhasil Check Out", Toast.LENGTH_SHORT).show();
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }, new com.android.volley.Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // method to handle errors.
+                        Toast.makeText(getActivity(), "Fail to get response = " + error, Toast.LENGTH_SHORT).show();
+                    }
+                }) {
+                    @Override
+                    public byte[] getBody() throws AuthFailureError {
+                        JSONObject send = new JSONObject();
+                        try {
+                            SimpleDateFormat df = new SimpleDateFormat("HH:mm");
+                            String jamnow = df.format(now);
+                            send.put("cout",jamnow);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        String jsonString = send.toString();
+                        return jsonString.getBytes();
+                    }
+                };
+                queue.add(request);
             }
         });
 
@@ -104,6 +181,7 @@ public class Fragment_Awal extends Fragment {
                             if (cin != null){
                                 txtcin.setText(cin);
                                 btncin.setEnabled(false);
+                                btncout.setEnabled(true);
                             }
                             String cout = isi.getString("cout");
                             if (cout != null){
