@@ -86,22 +86,20 @@ public class History extends Fragment {
                                 jsonArray.put(jsonisi.get(key));
                             }
 
-                            String cin="" ;String cout= "";
+                            String cin="00:00" ;String cout= "00:00";
                             for (int i=0;i<jsonArray.length();i++){
                                 JSONObject jsonObject1 = jsonArray.getJSONObject(i);
                                 try {
                                     cin = jsonObject1.getString("cin");
+                                }catch (JSONException e){
+
+                                }
+                                try {
                                     cout = jsonObject1.getString("cout");
                                 }catch (JSONException e){
 
                                 }
                                 String date = jsonObject1.getString("date");
-                                if (cout == null){
-                                    cout = "";
-                                }
-                                if (cin == null){
-                                    cin = "";
-                                }
                                 Absensiisi isiab = new Absensiisi(cin,cout,date);
                                 System.out.println(isiab.getDate()+":"+isiab.getCin()+"/"+isiab.getCout());
                                 listabsen.add(isiab);
