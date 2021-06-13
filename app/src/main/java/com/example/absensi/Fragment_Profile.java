@@ -1,5 +1,6 @@
 package com.example.absensi;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -20,6 +21,8 @@ public class Fragment_Profile extends Fragment {
     TextView txtnama,txtnip,txtjabatan,txtemail;
     EditText txtpass,txtconfirmpass;
     Button btnrubah;
+    AppDatabase db;
+
 
     public Fragment_Profile() {
         // Required empty public constructor
@@ -64,5 +67,27 @@ public class Fragment_Profile extends Fragment {
                 Toast.makeText(getActivity(), "Password berhasil di rubah", Toast.LENGTH_SHORT).show();
             }
         });
+
+        private class updatepegawai extends AsyncTask<Pegawai, Void, Void> {
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                super.onPostExecute(aVoid);
+            }
+
+            @Override
+            protected Void doInBackground(Pegawai... pegawais) {
+                db = AppDatabase.getDatabase(getContext());
+                db.pegawaiDAO().update(pegawais[0]);
+                return null;
+            }
+        }
+
+        public void reset() {
+            txtpass.setText("");
+            txtconfirmpass.setText("");
+        }
     }
+
+
 }
