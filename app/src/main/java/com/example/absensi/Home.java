@@ -40,6 +40,9 @@ public class Home extends AppCompatActivity implements BottomNavigationView.OnNa
         if (item.getItemId() == R.id.menu_profile) {
             fragment = new Fragment_Profile(pegawailogin);
         }
+        if (item.getItemId() == R.id.menu_profile) {
+            fragment = new History();
+        }History
         if (item.getItemId() == R.id.menu_logout) {
             finish();
         }
