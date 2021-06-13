@@ -37,9 +37,9 @@ tools:context=".Fragment_Profile">
         android:layout_height="wrap_content"
         android:layout_marginStart="128dp"
         android:layout_marginTop="20dp"
-        android:backgroundTint="#85E68D"
+        android:backgroundTint="#9D061F"
         android:text="Ubah Password"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etconfirmpass" />
 
