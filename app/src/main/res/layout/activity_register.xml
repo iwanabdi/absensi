@@ -156,6 +156,7 @@
         android:layout_height="40dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="5dp"
+        android:backgroundTint="#D31010"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
