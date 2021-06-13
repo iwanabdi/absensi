@@ -89,8 +89,12 @@ public class History extends Fragment {
                             String cin="" ;String cout= "";
                             for (int i=0;i<jsonArray.length();i++){
                                 JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                                cin = jsonObject1.getString("cin");
-                                cout = jsonObject1.getString("cout");
+                                try {
+                                    cin = jsonObject1.getString("cin");
+                                    cout = jsonObject1.getString("cout");
+                                }catch (JSONException e){
+
+                                }
                                 String date = jsonObject1.getString("date");
                                 if (cout == null){
                                     cout = "";
