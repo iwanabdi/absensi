@@ -65,8 +65,9 @@ public class Fragment_Profile extends Fragment {
             @Override
             public void onClick(View v) {
                 if (txtpass.getText().toString().equals(txtconfirmpass.getText().toString())){
-                    peglogin.setEmail(txtpass.getText().toString());
-                    new updatepass().execute(peglogin);
+                    peglogin.setPassword(txtpass.getText().toString());
+                    System.out.println(peglogin.getPassword());
+                    new Addpegawaitask().execute(peglogin);
                     Toast.makeText(getActivity(), "Password berhasil di rubah", Toast.LENGTH_SHORT).show();
                 }
                 Toast.makeText(getActivity(), "Password pastikan sama", Toast.LENGTH_SHORT).show();
@@ -75,18 +76,18 @@ public class Fragment_Profile extends Fragment {
 
     }
 
-    private class updatepass extends AsyncTask<Pegawai,Void,Void>{
-
-        @Override
-        protected Void doInBackground(Pegawai... pegawais) {
-            db.pegawaiDAO().update(pegawais[0]);
-            return null;
-        }
+    private class Addpegawaitask extends AsyncTask<Pegawai, Void, Void> {
 
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-//            Toast.makeText(MainActivity.this,"Update barang berhasil dilakukan",Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        protected Void doInBackground(Pegawai... pegawais) {
+            db = AppDatabase.getDatabase(getContext());
+            db.pegawaiDAO().insert(pegawais[0]);
+            return null;
         }
     }
 }

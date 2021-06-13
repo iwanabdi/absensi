@@ -17,7 +17,7 @@ public interface PegawaiDAO {
     @Query("SELECT * FROM pegawai WHERE pegawai_email = :email AND pegawai_password = :pass")
     Pegawai getpeg(String email,String pass);
 
-    @Insert(onConflict = OnConflictStrategy.ABORT)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(Pegawai peg);
 
     @Update
