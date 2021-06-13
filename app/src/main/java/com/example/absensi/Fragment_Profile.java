@@ -28,6 +28,9 @@ public class Fragment_Profile extends Fragment {
         // Required empty public constructor
     }
 
+    public Fragment_Profile(Pegawai pegawailogin) {
+    }
+
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
