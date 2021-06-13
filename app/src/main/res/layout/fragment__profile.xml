@@ -44,23 +44,31 @@ tools:context=".Fragment_Profile">
 
     <EditText
         android:id="@+id/etPass"
-        android:layout_width="330dp"
+        android:layout_width="355dp"
         android:layout_height="40dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="5dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:drawableStart="@drawable/ic_password"
+        android:drawablePadding="10dp"
+        android:padding="10dp"
+        android:background="@drawable/background"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <EditText
         android:id="@+id/etconfirmpass"
-        android:layout_width="330dp"
+        android:layout_width="355dp"
         android:layout_height="40dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="5dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:drawableStart="@drawable/ic_password"
+        android:drawablePadding="10dp"
+        android:padding="10dp"
+        android:background="@drawable/background"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
@@ -83,6 +91,10 @@ tools:context=".Fragment_Profile">
         android:layout_marginTop="4dp"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:drawableStart="@drawable/ic_fullname"
+        android:padding="10dp"
+        android:background="@drawable/background"
+        android:drawablePadding="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
@@ -94,6 +106,10 @@ tools:context=".Fragment_Profile">
         android:layout_marginTop="5dp"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:drawableStart="@drawable/ic_nip"
+        android:padding="10dp"
+        android:background="@drawable/background"
+        android:drawablePadding="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
@@ -105,6 +121,10 @@ tools:context=".Fragment_Profile">
         android:layout_marginTop="5dp"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:drawableStart="@drawable/ic_jabatan"
+        android:padding="10dp"
+        android:background="@drawable/background"
+        android:drawablePadding="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
@@ -116,6 +136,10 @@ tools:context=".Fragment_Profile">
         android:layout_marginTop="5dp"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:drawableStart="@drawable/ic_baseline_email_24"
+        android:drawablePadding="10dp"
+        android:padding="10dp"
+        android:background="@drawable/background"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 

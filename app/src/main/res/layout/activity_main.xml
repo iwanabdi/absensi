@@ -24,13 +24,18 @@
         android:layout_width="332dp"
         android:layout_height="41dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
-        android:hint="Email"
         android:focusable="true"
+        android:hint="Email"
+        android:drawablePadding="10dp"
+        android:drawableStart="@drawable/ic_baseline_email_24"
         android:inputType="textPersonName"
+        android:padding="10dp"
+        android:background="@drawable/background"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
+
     <EditText
 
         android:id="@+id/etpassword"
@@ -40,6 +45,11 @@
         android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="Password"
+        android:drawablePadding="10dp"
+        android:padding="10dp"
+        android:drawableStart="@drawable/ic_password"
+        android:background="@drawable/background"
+
         android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -73,7 +83,7 @@
     <Button
         android:id="@+id/btnregis_lgn"
         android:layout_width="87dp"
-        android:layout_height="34dp"
+        android:layout_height="40dp"
         android:layout_marginStart="3dp"
         android:layout_marginTop="83dp"
         android:backgroundTint="#9D061F"
