@@ -29,15 +29,16 @@
                 android:src="@drawable/logoprofile" />
 
             <LinearLayout
+                android:layout_marginTop="15dp"
                 android:layout_width="match_parent"
-                android:layout_height="65dp"
+                android:layout_height="80dp"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/txnama"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:layout_weight="1"
                     android:text="nama"
                     android:textSize="18sp"
@@ -46,7 +47,7 @@
                 <TextView
                     android:id="@+id/txnip"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:layout_marginTop="10px"
                     android:layout_weight="1"
                     android:text="nip"
@@ -55,7 +56,7 @@
                 <TextView
                     android:id="@+id/txjabatan"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:layout_marginTop="10px"
                     android:layout_weight="1"
                     android:text="jabatan"
