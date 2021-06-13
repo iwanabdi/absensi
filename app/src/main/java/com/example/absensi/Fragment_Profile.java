@@ -64,30 +64,10 @@ public class Fragment_Profile extends Fragment {
         btnrubah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Toast.makeText(getActivity(), "Password berhasil di rubah", Toast.LENGTH_SHORT).show();
             }
         });
 
-        private class updatepegawai extends AsyncTask<Pegawai, Void, Void> {
-
-            @Override
-            protected void onPostExecute(Void aVoid) {
-                super.onPostExecute(aVoid);
-            }
-
-            @Override
-            protected Void doInBackground(Pegawai... pegawais) {
-                db = AppDatabase.getDatabase(getContext());
-                db.pegawaiDAO().update(pegawais[0]);
-                return null;
-            }
-        }
-
-        public void reset() {
-            txtpass.setText("");
-            txtconfirmpass.setText("");
-        }
     }
-
-
 }
