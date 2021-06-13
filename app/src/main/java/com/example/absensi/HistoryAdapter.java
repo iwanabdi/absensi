@@ -56,7 +56,6 @@ public class HistoryAdapter  extends RecyclerView.Adapter<HistoryAdapter.ViewHol
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            System.out.println(listabsen.get(2).getCin());
             txt_checkin = itemView.findViewById(R.id.txt_checkin);
             txt_checkout = itemView.findViewById(R.id.txt_checkout);
             txt_tanggal_history = itemView.findViewById(R.id.txt_tanggal_history);

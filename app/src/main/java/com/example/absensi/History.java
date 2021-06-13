@@ -86,6 +86,7 @@ public class History extends Fragment {
                                 jsonArray.put(jsonisi.get(key));
                             }
 
+                            listabsen.clear();
                             String cin="00:00" ;String cout= "00:00";
                             for (int i=0;i<jsonArray.length();i++){
                                 JSONObject jsonObject1 = jsonArray.getJSONObject(i);
