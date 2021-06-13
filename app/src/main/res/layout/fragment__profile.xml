@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".Fragment_Profile">
+
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:background="@drawable/login_shape_bk"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@drawable/ic_login_bk" />
+</FrameLayout>
+
+<EditText
+    android:id="@+id/etemail"
+    android:layout_width="330dp"
+    android:layout_height="40dp"
+    android:layout_marginStart="36dp"
+    android:layout_marginTop="5dp"
+    android:ems="10"
+    android:hint="Email"
+    android:inputType="textPersonName"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <Button
+        android:id="@+id/btnubah"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#85E68D"
+        android:text="Ubah Password"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etconfirmpass" />
+
+    <ImageView
+    android:id="@+id/imageView2"
+    android:layout_width="173dp"
+    android:layout_height="100dp"
+    android:layout_marginStart="120dp"
+    android:layout_marginTop="10dp"
+    android:src="@drawable/logoprofile"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+</ImageView>
+
+    <EditText
+    android:id="@+id/etNama"
+    android:layout_width="330dp"
+    android:layout_height="40dp"
+    android:layout_marginStart="36dp"
+    android:layout_marginTop="5dp"
+    android:ems="10"
+    android:hint="Nama Lengkap"
+    android:inputType="textPersonName"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+<EditText
+    android:id="@+id/etNIK"
+    android:layout_width="330dp"
+    android:layout_height="40dp"
+    android:layout_marginStart="36dp"
+    android:layout_marginTop="5dp"
+    android:ems="10"
+    android:hint="Nomer Induk Pegawai"
+    android:inputType="textPersonName"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+<EditText
+    android:id="@+id/etPass"
+    android:layout_width="330dp"
+    android:layout_height="40dp"
+    android:layout_marginStart="36dp"
+    android:layout_marginTop="5dp"
+    android:ems="10"
+    android:hint="Password"
+    android:inputType="textPersonName"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+<EditText
+    android:id="@+id/etconfirmpass"
+    android:layout_width="330dp"
+    android:layout_height="40dp"
+    android:layout_marginStart="36dp"
+    android:layout_marginTop="5dp"
+    android:ems="10"
+    android:hint="Konfirmasi Password"
+    android:inputType="textPersonName"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+<Spinner
+    android:id="@+id/spinjabatan"
+    android:layout_width="330dp"
+    android:layout_height="40dp"
+    android:layout_marginStart="36dp"
+    android:layout_marginTop="5dp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+<TextView
+    android:id="@+id/textView5"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="36dp"
+    android:layout_marginTop="55dp"
+    android:text="Nama Lengkap :"
+    android:textStyle="bold"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+<TextView
+    android:id="@+id/textView7"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="36dp"
+    android:layout_marginTop="10dp"
+    android:text="NIP :"
+    android:textStyle="bold"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/etNama" />
+
+<TextView
+    android:id="@+id/textView8"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="36dp"
+    android:layout_marginTop="10dp"
+    android:text="Jabatan :"
+    android:textStyle="bold"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/etNIK" />
+
+<TextView
+    android:id="@+id/textView9"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="36dp"
+    android:layout_marginTop="5dp"
+    android:text="Email :"
+    android:textStyle="bold"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/spinjabatan" />
+
+<TextView
+    android:id="@+id/textView10"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="36dp"
+    android:layout_marginTop="5dp"
+    android:text="Password :"
+    android:textStyle="bold"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/etemail" />
+
+<TextView
+    android:id="@+id/textView11"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="36dp"
+    android:layout_marginTop="5dp"
+    android:text="Confirmasi Password :"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/etPass"
+    android:textStyle="bold" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
