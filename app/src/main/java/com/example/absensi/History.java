@@ -87,15 +87,12 @@ public class History extends Fragment {
                             }
 
                             listabsen.clear();
-                            String cin="00:00" ;String cout= "00:00";
                             for (int i=0;i<jsonArray.length();i++){
+                                String cin="00:00" ;
+                                String cout= "00:00";
                                 JSONObject jsonObject1 = jsonArray.getJSONObject(i);
                                 try {
                                     cin = jsonObject1.getString("cin");
-                                }catch (JSONException e){
-
-                                }
-                                try {
                                     cout = jsonObject1.getString("cout");
                                 }catch (JSONException e){
 
@@ -107,7 +104,6 @@ public class History extends Fragment {
                             }
 
                             adapter.notifyDataSetChanged();
-                            System.out.println(jsonArray.length());
                         }catch (JSONException e){
                             e.printStackTrace();
                         }
