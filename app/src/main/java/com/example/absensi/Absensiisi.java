@@ -11,7 +11,7 @@ public class Absensiisi implements Parcelable {
     public Absensiisi() {
     }
 
-    public Absensiisi(@Nullable String cin,@Nullable String cout, String date) {
+    public Absensiisi(String cin,String cout, String date) {
         this.cin = cin;
         this.cout = cout;
         this.date = date;
